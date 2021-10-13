@@ -6,7 +6,16 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc && node dist/src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "sequelize": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*",
+    "db:create": "node_modules/.bin/sequelize db:create",
+    "db:drop": "node_modules/.bin/sequelize db:drop",
+    "db:reset": "npm run db:drop && npm run db:create",
+    "db:migrate": "node_modules/.bin/sequelize db:migrate",
+    "db:seed": "node_modules/.bin/sequelize db:seed:all",
+    "db:reset:migrate:seed": "npm run db:reset && npm run db:migrate && npm run db:seed"
   },
   "author": "magnific7 <mjones6944@gmail.com> (https://registry.npmjs.org/)",
   "license": "ISC",
@@ -20,8 +29,9 @@
     "express-validator": "^6.12.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
-    "save-database": "file:../../R saveDB/save-database",
-    "sequelize": "^6.7.0"
+    "save-database": "gitlab:DreamStartLabs/save/save-database#main",
+    "sequelize": "^6.7.0",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

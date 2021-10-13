@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import User from "save-database";
+import { User } from "save-database";
 
 class userController {
+  async home(req: Request, res: Response) {}
   async getAllUsers(req: Request, res: Response) {
     try {
       const users = await User.findAll();

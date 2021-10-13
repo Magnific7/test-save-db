@@ -1,0 +1,11 @@
+require("dotenv").config();
+
+const path = require("path");
+
+const databasePath = "node_modules/save-database/dist/database";
+module.exports = {
+  config: path.join(databasePath, "config", "config.js"),
+  "models-path": path.join(databasePath, "models"),
+  "seeders-path": path.join(databasePath, "seeders"),
+  "migrations-path": path.join(databasePath, "migrations"),
+};
